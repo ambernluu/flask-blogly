@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}All Posts {% endblock %}
+{% block content %}
+<div class="container">
+    <h1>All Posts</h1>
+    <ul>
+        {% for post in posts %}
+        <li><a href="/posts/show_post/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+    </ul>
+    <form action="/">
+        <button>Add Post (not yet implemented)</button>
+    </form>
+</div>
+{% endblock %}
