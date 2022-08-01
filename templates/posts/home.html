@@ -4,9 +4,15 @@
 <div class="container">
     <h1>Blogly Recent Posts</h1>
     {% for post in posts %} 
-    <h2><a href="/posts/show_post/{{post.id}}">{{post.title}}</a></h2>
-    <p>{{post.content}}</p>
-    <p><small>By: {{post.user.full_name}} on {{post.created_at}}</small></p>
+    <h2 class="post-title"><a href="/posts/show_post/{{post.id}}">{{post.title}}</a></h2>
+    <p><q><i>{{post.content}}</i></q></p>
+    <p><small>By: <a href="/users/{{post.user.id}}">{{post.user.full_name}}</a> on {{post.created_at}}</small></p>
+    <p>
+        <strong>Tags:</strong>
+        {% for tag in post.tags %}
+        <a href="/tags/{{tag.id}}"><span class="badge rounded-pill text-bg-info">{{tag.name}} </span></a>
+        {% endfor %}
+    </p>
     {% endfor %}
     
 </div>

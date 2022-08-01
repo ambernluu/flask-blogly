@@ -5,22 +5,32 @@
     <h1>Edit Post</h1>
     <form method="POST">
         <div class="form-group row">
-            <label for="title" class="col-sm-2">Title:</label>
-            <div class=class="col-sm-10">
+            <label for="title">Title:</label>
+            <div class=class="col-auto">
                 <input type="text" name="title" class="form-control" placeholder="{{post.title}}">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="content" class="col-sm-2">Content:</label>
-            <div class=class="col-sm-10">
+            <label for="content">Content:</label>
+            <div class=class="col-auto">
                 <textarea name="content" class="form-control" placeholder="{{post.content}}"></textarea>
             </div>
         </div>
-
         <div class="form-group row">
-            <a href="/" class="btn col-sm-1">Cancel</a>
-            <button type="submit" class="col-sm-1">Add</button>
+            <div><label>Tags:</label></div>
+            {% for tag in tags %}
+            <div class="form-check-input">
+                <input class="form-check-input" type="checkbox" value="{{ tag.id }}" id="tag_{{ tag.id }}" name="tags">
+                <label class="form-check-label" for="defaultCheck1">
+                    {{tag.name}}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="form-group row">
+            <a href="/" class="btn btn-warning col-sm-1">Cancel</a>
+            <button type="submit" class="btn btn-info col-sm-1">Save</button>
             <p class="col-sm-8"> </p>
         </div>
     </form>
